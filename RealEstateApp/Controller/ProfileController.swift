@@ -10,11 +10,16 @@ import UIKit
 
 class ProfileController: UIViewController {
 
+
     @IBOutlet weak var image: UIImageView!
+    @IBOutlet weak var ContentView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setRounded(imageView: image)
+        ContentView.layer.cornerRadius = 15
+        ContentView.layer.borderWidth = 2
+        ContentView.layer.borderColor = hexStringToUIColor(hex:"#336666").cgColor
         // Do any additional setup after loading the view.
     }
 

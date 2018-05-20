@@ -14,6 +14,11 @@
 		907DEE7E20AD362100FBEA6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 907DEE7C20AD362100FBEA6E /* LaunchScreen.storyboard */; };
 		907DEE8D20AD3B3200FBEA6E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907DEE8C20AD3B3200FBEA6E /* LoginController.swift */; };
 		907DEE8F20AD4AA300FBEA6E /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907DEE8E20AD4AA300FBEA6E /* ProfileController.swift */; };
+		909497A120B1CC4300709760 /* HouseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909497A020B1CC4300709760 /* HouseModel.swift */; };
+		909497A320B1D1D600709760 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909497A220B1D1D600709760 /* UserModel.swift */; };
+		909497A520B1E30300709760 /* HouseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909497A420B1E30300709760 /* HouseDetailViewController.swift */; };
+		90A3F8C720B14A36007534A9 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3F8C620B14A36007534A9 /* HomeListViewController.swift */; };
+		90A3F8CB20B14CE1007534A9 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3F8CA20B14CE1007534A9 /* HomeViewCell.swift */; };
 		90C08BA820AE5A100071E798 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C08BA720AE5A100071E798 /* RegisterController.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +32,11 @@
 		907DEE7F20AD362100FBEA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		907DEE8C20AD3B3200FBEA6E /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		907DEE8E20AD4AA300FBEA6E /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
+		909497A020B1CC4300709760 /* HouseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseModel.swift; sourceTree = "<group>"; };
+		909497A220B1D1D600709760 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		909497A420B1E30300709760 /* HouseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailViewController.swift; sourceTree = "<group>"; };
+		90A3F8C620B14A36007534A9 /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
+		90A3F8CA20B14CE1007534A9 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		90C08BA720AE5A100071E798 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +83,8 @@
 		907DEE8520AD39F900FBEA6E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				909497A020B1CC4300709760 /* HouseModel.swift */,
+				909497A220B1D1D600709760 /* UserModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -93,6 +105,9 @@
 				907DEE8C20AD3B3200FBEA6E /* LoginController.swift */,
 				907DEE8E20AD4AA300FBEA6E /* ProfileController.swift */,
 				90C08BA720AE5A100071E798 /* RegisterController.swift */,
+				90A3F8C620B14A36007534A9 /* HomeListViewController.swift */,
+				90A3F8CA20B14CE1007534A9 /* HomeViewCell.swift */,
+				909497A420B1E30300709760 /* HouseDetailViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -168,10 +183,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				909497A520B1E30300709760 /* HouseDetailViewController.swift in Sources */,
+				909497A120B1CC4300709760 /* HouseModel.swift in Sources */,
 				90C08BA820AE5A100071E798 /* RegisterController.swift in Sources */,
+				90A3F8C720B14A36007534A9 /* HomeListViewController.swift in Sources */,
+				90A3F8CB20B14CE1007534A9 /* HomeViewCell.swift in Sources */,
 				907DEE7620AD361E00FBEA6E /* ViewController.swift in Sources */,
 				907DEE8D20AD3B3200FBEA6E /* LoginController.swift in Sources */,
 				907DEE7420AD361E00FBEA6E /* AppDelegate.swift in Sources */,
+				909497A320B1D1D600709760 /* UserModel.swift in Sources */,
 				907DEE8F20AD4AA300FBEA6E /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
