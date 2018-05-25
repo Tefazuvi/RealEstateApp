@@ -11,9 +11,16 @@ import UIKit
 class LoginController: UIViewController, UITextFieldDelegate{
     @IBOutlet weak var UserNameText: UITextField!
     @IBOutlet weak var PasswordText: UITextField!
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        view.addSubview(activityIndicator)
+        
         // Do any additional setup after loading the view.
         UserNameText.delegate = self
         PasswordText.delegate = self
@@ -64,6 +71,27 @@ class LoginController: UIViewController, UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+    
+    func authenticate(){
+        signSucces()
+        if(UserNameText.text == "User" && PasswordText.text == "123")
+        {
+            signSucces()
+        }else{
+            //De momento nada
+        }
+    }
+    
+    func signSucces(){
+        //DispatchQueue.main.async(){
+        self.performSegue(withIdentifier: "ShowHome", sender: self)
+        //}
+    }
+    
+    
+    @IBAction func Ingresar(_ sender: Any) {
+        authenticate()
     }
     
     
