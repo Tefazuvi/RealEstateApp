@@ -9,9 +9,16 @@
 import UIKit
 
 class LoginController: UIViewController, UITextFieldDelegate{
+    
+    static let sharedInstance = LoginController()
+    //private init() {} //This prevents others from using the default '()' initializer for this class.
+    
     @IBOutlet weak var UserNameText: UITextField!
     @IBOutlet weak var PasswordText: UITextField!
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    //var logged: Bool = false
+    var currentUser:UserModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,7 +98,22 @@ class LoginController: UIViewController, UITextFieldDelegate{
     
     
     @IBAction func Ingresar(_ sender: Any) {
-        authenticate()
+        RESTAPIManager.sharedInstance.getUser(email: UserNameText.text!, password: PasswordText.text!, onSuccess: {
+            json in
+            DispatchQueue.main.async {
+                if let user = String(describing: json).data(using: .utf8){
+                    //print(user)
+                    LoginController.sharedInstance.currentUser = try! JSONDecoder().decode(UserModel.self, from: user)
+                    /*ProfileController.sharedInstance.showUser(user: self.currentUser!)*/
+                    //print(self.currentUser!.name)
+                    self.authenticate()
+                }
+            }
+        }, onFailure: { error in
+            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.show(alert, sender: nil)
+        })
     }
     
     

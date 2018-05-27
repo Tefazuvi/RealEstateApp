@@ -106,27 +106,27 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         if notification.name == Notification.Name.UIKeyboardWillShow || notification.name == Notification.Name.UIKeyboardWillChangeFrame{
             
             
-             if  let userInfo = notification.userInfo,
-             let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
-             let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
-             let animationCurveRaw = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
-             {
-             let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: UIViewAnimationOptions.RawValue(truncating: animationCurveRaw))
-             let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height-30, 0.0)
-             
-             UIView.animate(withDuration: duration, delay: 0, options: animationCurve, animations: {
-             self.scrollView.contentInset = contentInsets
-             self.scrollView.scrollIndicatorInsets = contentInsets
-             
-             var aRect : CGRect = self.view.frame
-             aRect.size.height -= keyboardSize.height
-             if let activeField = self.activeTextField {
-             if (!aRect.contains(activeField.frame.origin)){
-             self.scrollView.scrollRectToVisible(activeField.frame, animated: false)
-             }
-             }
-             }, completion: nil)
-             }
+            if  let userInfo = notification.userInfo,
+                let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
+                let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
+                let animationCurveRaw = userInfo[UIKeyboardAnimationCurveUserInfoKey] as? NSNumber
+            {
+                let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: UIViewAnimationOptions.RawValue(truncating: animationCurveRaw))
+                let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height-30, 0.0)
+                
+                UIView.animate(withDuration: duration, delay: 0, options: animationCurve, animations: {
+                    self.scrollView.contentInset = contentInsets
+                    self.scrollView.scrollIndicatorInsets = contentInsets
+                    
+                    var aRect : CGRect = self.view.frame
+                    aRect.size.height -= keyboardSize.height
+                    if let activeField = self.activeTextField {
+                        if (!aRect.contains(activeField.frame.origin)){
+                            self.scrollView.scrollRectToVisible(activeField.frame, animated: false)
+                        }
+                    }
+                }, completion: nil)
+            }
         }
         else if notification.name == Notification.Name.UIKeyboardWillHide{
             
@@ -144,7 +144,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
             }
             
         }
-
+        
     }
     
     // Assign the newly active text field to your activeTextField variable
@@ -201,6 +201,21 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
             blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
             alpha: CGFloat(1.0)
         )
+    }
+    
+    
+    @IBAction func Register(_ sender: Any) {
+        let newUser = UserModel(Name: name.text!, LastName: lastname.text!, Email: email.text!, Password: password.text!, Phone: phone.text!, Type: 1)
+        
+        RESTAPIManager.sharedInstance.saveUser(user: newUser , onSuccess: {
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "ShowHomeWithUser", sender: self)
+            }
+        }, onFailure: { error in
+            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+            self.show(alert, sender: nil)
+        })
     }
     
     /*

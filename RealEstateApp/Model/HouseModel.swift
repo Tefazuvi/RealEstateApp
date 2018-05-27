@@ -10,6 +10,7 @@ import Foundation
 
 class HouseModel{
     
+    let id: Int
     let address1 : String
     let address2: String
     let size : Double
@@ -22,7 +23,8 @@ class HouseModel{
     let security: Bool
     let picture: NSData //Revisar tipo y conversion para pasar a base
     
-    init(Address1: String, Address2: String, Size: Double, BuildingSize: Double, Price: Double, Details: String, Bedrooms: Int, Bathrooms: Int, Garage: Int, Security: Bool, Picture: NSData) {
+    init(Id: Int, Address1: String, Address2: String, Size: Double, BuildingSize: Double, Price: Double, Details: String, Bedrooms: Int, Bathrooms: Int, Garage: Int, Security: Bool, Picture: NSData) {
+        id = Id
         address1 = Address1
         address2 = Address2
         size = Size
