@@ -464,7 +464,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RealEstateLOGO" translatesAutoresizingMaskIntoConstraints="NO" id="3oW-eW-1lx">
-                                <rect key="frame" x="70" y="84" width="235" height="70"/>
+                                <rect key="frame" x="70" y="40" width="235" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="YeR-NQ-Eb7"/>
                                 </constraints>
@@ -537,10 +537,10 @@
                                 <rect key="frame" x="123" y="75" width="128" height="128"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NIe-Ug-gIg">
-                                <rect key="frame" x="0.0" y="67" width="375" height="600"/>
+                                <rect key="frame" x="0.0" y="23" width="375" height="644"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woodbackground" translatesAutoresizingMaskIntoConstraints="NO" id="Afl-MT-iS8">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="595"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_picture" translatesAutoresizingMaskIntoConstraints="NO" id="ZLq-fg-rtE">
                                         <rect key="frame" x="123" y="30" width="128" height="128"/>
@@ -550,10 +550,10 @@
                                         </constraints>
                                     </imageView>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" directionalLockEnabled="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Von-qO-aP9">
-                                        <rect key="frame" x="20" y="186" width="335" height="335"/>
+                                        <rect key="frame" x="20" y="186" width="335" height="379"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Teléfono" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pc-mc-ELe">
-                                                <rect key="frame" x="38" y="156" width="260" height="23"/>
+                                                <rect key="frame" x="38" y="178" width="260" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="w2A-ck-89W"/>
                                                 </constraints>
@@ -562,7 +562,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="0Rn-gw-Gez">
-                                                <rect key="frame" x="38" y="224" width="260" height="23"/>
+                                                <rect key="frame" x="38" y="246" width="260" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="pyE-Iw-agA"/>
                                                 </constraints>
@@ -571,7 +571,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nombre completo" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.80000000000000004" translatesAutoresizingMaskIntoConstraints="NO" id="wJS-Ne-bxW">
-                                                <rect key="frame" x="38" y="88" width="260" height="23"/>
+                                                <rect key="frame" x="38" y="110" width="260" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="260" id="BfP-s2-MA7"/>
                                                 </constraints>
@@ -634,6 +634,8 @@
                         <outlet property="fullName" destination="wJS-Ne-bxW" id="7Hc-GO-FJS"/>
                         <outlet property="image" destination="ZLq-fg-rtE" id="1cs-GR-MdL"/>
                         <outlet property="phone" destination="2Pc-mc-ELe" id="8pP-HF-ZZB"/>
+                        <segue destination="Bxd-Jz-1p1" kind="showDetail" identifier="ShowLogin" id="8lB-LV-HKc"/>
+                        <segue destination="ef1-ZX-zg7" kind="show" identifier="ShowHouses" id="vzB-zN-MZ9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="H7x-Ep-I16" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -649,17 +651,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="woodbackground" translatesAutoresizingMaskIntoConstraints="NO" id="Ihh-h4-y61">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_picture" translatesAutoresizingMaskIntoConstraints="NO" id="5ga-6i-Hlz">
-                                <rect key="frame" x="124" y="94" width="128" height="128"/>
+                                <rect key="frame" x="124" y="50" width="128" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="y99-wV-OyV"/>
                                     <constraint firstAttribute="width" constant="128" id="y9v-fx-abc"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xmk-ff-cwz">
-                                <rect key="frame" x="135" y="570" width="105" height="30"/>
+                                <rect key="frame" x="135" y="619" width="105" height="30"/>
                                 <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="0.80000000000000004" alpha="0.56216449386503065" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="REGISTRARSE">
@@ -671,7 +673,7 @@
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQp-i8-3oz">
-                                <rect key="frame" x="21" y="240" width="333" height="322"/>
+                                <rect key="frame" x="21" y="196" width="333" height="415"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="NOMBRE" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WIr-N6-IKO">
                                         <rect key="frame" x="39" y="30" width="256" height="30"/>
@@ -784,7 +786,7 @@
                         <outlet property="password" destination="eDa-pe-D0Q" id="qla-En-fW9"/>
                         <outlet property="phone" destination="PFR-gJ-0e2" id="gwl-ag-snQ"/>
                         <outlet property="scrollView" destination="OQp-i8-3oz" id="kn5-nB-cha"/>
-                        <segue destination="ef1-ZX-zg7" kind="showDetail" identifier="ShowHomeWithUser" id="424-2o-klM"/>
+                        <segue destination="Bxd-Jz-1p1" kind="showDetail" identifier="ShowLogin" id="5M8-8y-Brx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihc-ot-A85" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -847,5 +849,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Th6-0s-MGa"/>
+        <segue reference="5M8-8y-Brx"/>
     </inferredMetricsTieBreakers>
 </document>

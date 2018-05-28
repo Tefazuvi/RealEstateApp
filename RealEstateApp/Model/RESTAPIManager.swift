@@ -16,7 +16,7 @@ struct login: Codable{
 
 class RESTAPIManager: NSObject{
     
-    let baseURL = "http://8bd024f8.ngrok.io/"
+    let baseURL = "http://c17a32e0.ngrok.io/"
     static let sharedInstance = RESTAPIManager()
     //static let getPostsEndpoint = "/posts/"
     //static let getCommentsEndpoint = "/comments/"

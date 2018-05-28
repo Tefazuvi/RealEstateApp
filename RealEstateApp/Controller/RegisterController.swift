@@ -18,7 +18,11 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var confirmEmail: UITextField!
     @IBOutlet weak var password: UITextField!
+    
+    var activityIndicator = UIActivityIndicatorView()
     var activeTextField: UITextField!
+    var picture: UIImage!
+    var strBase64: String?
     
     var imagePicker = UIImagePickerController()
     
@@ -60,6 +64,11 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(LoginController.keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(LoginController.keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        view.addSubview(activityIndicator)
     }
     
     @objc func imageTapped()
@@ -79,8 +88,14 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             image.contentMode = .scaleAspectFill
             image.image = pickedImage
+            //picture = pickedImage.resized(withPercentage: 0.5)
+            picture = pickedImage
         }
         dismiss(animated: true, completion: nil)
+        
+        //Use image to convert intro NSData format
+        let imageData:NSData = UIImageJPEGRepresentation(picture, 0.25)! as NSData
+        strBase64 = imageData.base64EncodedString(options: .lineLength64Characters)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -205,27 +220,21 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     
     @IBAction func Register(_ sender: Any) {
-        let newUser = UserModel(Name: name.text!, LastName: lastname.text!, Email: email.text!, Password: password.text!, Phone: phone.text!, Type: 1)
+        activityIndicator.startAnimating()
+        
+        let newUser = UserModel(Id: 0, Name: name.text, LastName: lastname.text, Email: email.text!, Password: password.text!, Phone: phone.text, Type: 1, Profile: strBase64)
         
         RESTAPIManager.sharedInstance.saveUser(user: newUser , onSuccess: {
             DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "ShowHomeWithUser", sender: self)
+                self.performSegue(withIdentifier: "ShowLogin", sender: self)
+                self.activityIndicator.stopAnimating()
             }
         }, onFailure: { error in
             let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
             self.show(alert, sender: nil)
         })
+        
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

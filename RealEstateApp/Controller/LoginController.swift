@@ -15,7 +15,7 @@ class LoginController: UIViewController, UITextFieldDelegate{
     
     @IBOutlet weak var UserNameText: UITextField!
     @IBOutlet weak var PasswordText: UITextField!
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    var activityIndicator = UIActivityIndicatorView()
     
     //var logged: Bool = false
     var currentUser:UserModel?
@@ -81,31 +81,24 @@ class LoginController: UIViewController, UITextFieldDelegate{
     }
     
     func authenticate(){
-        signSucces()
-        if(UserNameText.text == "User" && PasswordText.text == "123")
+        activityIndicator.stopAnimating()
+        self.performSegue(withIdentifier: "ShowHome", sender: self)
+        /*if(UserNameText.text == "User" && PasswordText.text == "123")
         {
             signSucces()
         }else{
             //De momento nada
-        }
-    }
-    
-    func signSucces(){
-        //DispatchQueue.main.async(){
-        self.performSegue(withIdentifier: "ShowHome", sender: self)
-        //}
+        }*/
     }
     
     
     @IBAction func Ingresar(_ sender: Any) {
+        activityIndicator.startAnimating()
         RESTAPIManager.sharedInstance.getUser(email: UserNameText.text!, password: PasswordText.text!, onSuccess: {
             json in
             DispatchQueue.main.async {
                 if let user = String(describing: json).data(using: .utf8){
-                    //print(user)
                     LoginController.sharedInstance.currentUser = try! JSONDecoder().decode(UserModel.self, from: user)
-                    /*ProfileController.sharedInstance.showUser(user: self.currentUser!)*/
-                    //print(self.currentUser!.name)
                     self.authenticate()
                 }
             }
@@ -115,16 +108,5 @@ class LoginController: UIViewController, UITextFieldDelegate{
             self.show(alert, sender: nil)
         })
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

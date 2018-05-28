@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D91871F9DFA034BEAA86EF5 /* Pods_RealEstateApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41077EAB7CF352464F50C71B /* Pods_RealEstateApp.framework */; };
+		9029042920BB60F3007A6F23 /* ImageResizeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029042820BB60F3007A6F23 /* ImageResizeExtension.swift */; };
 		902B134020B9EA66003CBF5E /* RESTAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902B133F20B9EA66003CBF5E /* RESTAPIManager.swift */; };
 		907DEE7420AD361E00FBEA6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907DEE7320AD361E00FBEA6E /* AppDelegate.swift */; };
 		907DEE7620AD361E00FBEA6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907DEE7520AD361E00FBEA6E /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		1842B9957724CD207AEA1EF3 /* Pods-RealEstateApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealEstateApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealEstateApp/Pods-RealEstateApp.debug.xcconfig"; sourceTree = "<group>"; };
 		41077EAB7CF352464F50C71B /* Pods_RealEstateApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealEstateApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9029042820BB60F3007A6F23 /* ImageResizeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResizeExtension.swift; sourceTree = "<group>"; };
 		902B133F20B9EA66003CBF5E /* RESTAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPIManager.swift; sourceTree = "<group>"; };
 		907DEE7020AD361E00FBEA6E /* RealEstateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealEstateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		907DEE7320AD361E00FBEA6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		9029042720BB60DC007A6F23 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9029042820BB60F3007A6F23 /* ImageResizeExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		907DEE6720AD361E00FBEA6E = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +106,7 @@
 		907DEE7220AD361E00FBEA6E /* RealEstateApp */ = {
 			isa = PBXGroup;
 			children = (
+				9029042720BB60DC007A6F23 /* Extensions */,
 				907DEE8720AD3A0600FBEA6E /* Controller */,
 				907DEE8620AD3A0000FBEA6E /* View */,
 				907DEE8520AD39F900FBEA6E /* Model */,
@@ -254,6 +265,7 @@
 				909497A520B1E30300709760 /* HouseDetailViewController.swift in Sources */,
 				909497A120B1CC4300709760 /* HouseModel.swift in Sources */,
 				90C08BA820AE5A100071E798 /* RegisterController.swift in Sources */,
+				9029042920BB60F3007A6F23 /* ImageResizeExtension.swift in Sources */,
 				90A3F8C720B14A36007534A9 /* HomeListViewController.swift in Sources */,
 				90A3F8CB20B14CE1007534A9 /* HomeViewCell.swift in Sources */,
 				902B134020B9EA66003CBF5E /* RESTAPIManager.swift in Sources */,

@@ -10,8 +10,6 @@ import UIKit
 
 class ProfileController: UIViewController {
     
-    //static let sharedInstance = ProfileController()
-    
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var ContentView: UIScrollView!
     
@@ -30,25 +28,43 @@ class ProfileController: UIViewController {
         
     }
     
-    func showUser(user: UserModel){
-        //let user = LoginController.sharedInstance.currentUser
-        fullName.text = user.name + " " + user.lastname
-        phone.text = user.phone
-        email.text = user.email
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
-        //try show user here
+        
+        //Loads user information when the view shows
         let user = LoginController.sharedInstance.currentUser
-        fullName.text = "Nombre: " + user!.name + " " + user!.lastname
-        phone.text = "Teléfono: " + user!.phone
-        email.text = "Email: " + user!.email
-
+        if user != nil{
+            fullName.text = "Nombre: " + user!.name! + " " + user!.lastname!
+            phone.text = "Teléfono: " + user!.phone!
+            email.text = "Email: " + user!.email
+            
+            if user!.profile != nil{
+                getImage(strbase64: user!.profile!)
+            }
+        }else{
+            let alert = UIAlertController(title: "Debe ingresar con su cuenta de usuario.", message: nil, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+                self.performSegue(withIdentifier: "ShowHouses", sender: self)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+                self.performSegue(withIdentifier: "ShowLogin", sender: self)
+            }))
+            
+            self.present(alert, animated: true)
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getImage(strbase64: String){
+        let dataDecoded : Data = Data(base64Encoded: strbase64, options: .ignoreUnknownCharacters)!
+        let decodedimage = UIImage(data: dataDecoded)
+        image.image = decodedimage
     }
     
     func setRounded(imageView: UIImageView){
