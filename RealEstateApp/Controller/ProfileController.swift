@@ -16,6 +16,7 @@ class ProfileController: UIViewController {
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var email: UILabel!
+    @IBOutlet weak var RememberSwitch: UISwitch!
     
     
     override func viewDidLoad() {
@@ -54,6 +55,18 @@ class ProfileController: UIViewController {
             self.present(alert, animated: true)
         }
         
+        if let userSystem = LoginController.sharedInstance.userSystem {
+            RememberSwitch.isOn = userSystem.remember
+        }
+        
+    }
+    
+    @IBAction func SwitchToggle(_ sender: Any) {
+        if RememberSwitch.isOn {
+            LoginController.sharedInstance.saveUser()
+        } else {
+            LoginController.sharedInstance.forgetUser()
+        }
     }
     
     override func didReceiveMemoryWarning() {

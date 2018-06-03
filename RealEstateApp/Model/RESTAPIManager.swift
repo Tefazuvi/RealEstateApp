@@ -16,33 +16,10 @@ struct login: Codable{
 
 class RESTAPIManager: NSObject{
     
-    let baseURL = "http://c17a32e0.ngrok.io/"
+    let baseURL = "http://560cb97c.ngrok.io/"
     static let sharedInstance = RESTAPIManager()
-    //static let getPostsEndpoint = "/posts/"
-    //static let getCommentsEndpoint = "/comments/"
     static let SaveUserEndPoint = "Login/SaveUser";
     static let GetUserEndPoint = "Login/Authenticate";
-    
-    /*
-     func getPostWithId(postId: Int, onSuccess: @escaping(JSON) -> Void, onFailure: @escaping(Error) -> Void){
-     let url : String = baseURL + APIManager.getPostsEndpoint + String(postId)
-     let request: NSMutableURLRequest = NSMutableURLRequest(url: NSURL(string: url)! as URL)
-     request.httpMethod = "GET"
-     let session = URLSession.shared
-     let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
-     if(error != nil){
-     onFailure(error!)
-     } else{
-     do {
-     let result = try JSON(data: data!)
-     onSuccess(result)
-     } catch {
-     onFailure(error)
-     }
-     }
-     })
-     task.resume()
-     }*/
     
     func saveUser(user: UserModel, onSuccess: @escaping() -> Void, onFailure: @escaping(Error) -> Void){
         let url : String = baseURL + RESTAPIManager.SaveUserEndPoint

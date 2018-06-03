@@ -9,19 +9,30 @@
 import UIKit
 
 class HouseDetailViewController: UIViewController {
+    
     @IBOutlet weak var ImageView: UIImageView!
+    var house: HouseModel?
     var index: Int = 0
-    let arrPictures = ["home1","home2","home3","home4","home5","home6"]
+    var arrPictures = [String]()
     var swipeGesture  = UISwipeGestureRecognizer()
     
     @IBOutlet weak var imageLabel: UILabel!
+    @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var Address1Label: UILabel!
+    @IBOutlet weak var Address2Label: UILabel!
+    @IBOutlet weak var PriceLabel: UILabel!
+    @IBOutlet weak var LandSizeLabel: UILabel!
+    @IBOutlet weak var BuildingSizeLabel: UILabel!
+    @IBOutlet weak var BathroomsLabel: UILabel!
+    @IBOutlet weak var GarageLabel: UILabel!
+    @IBOutlet weak var SecurityLabel: UILabel!
+    @IBOutlet weak var DetailsLabel: UILabel!
+    @IBOutlet weak var BedRoomsLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
-        // Do any additional setup after loading the view.
-        ImageView.image = UIImage(named:arrPictures[index])
-        imageLabel.text = "\(index+1)/\(arrPictures.count)"
         
         let directions: [UISwipeGestureRecognizerDirection] = [.right, .left]
         
@@ -32,11 +43,37 @@ class HouseDetailViewController: UIViewController {
             ImageView.isUserInteractionEnabled = true
             ImageView.isMultipleTouchEnabled = true
         }
+        
+        guard let house = house else {
+            print("Error")
+            return
+        }
+        
+        setButtonImage()
+        arrPictures = house.pictures
+        Address1Label.text = house.address1
+        Address2Label.text = house.address2
+        PriceLabel.text = "₡ " + house.price
+        LandSizeLabel.text = String(house.size) + " m2"
+        BuildingSizeLabel.text = String(house.buildingSize) + " m2"
+        BedRoomsLabel.text = "\(house.bedrooms) Cuartos"
+        BathroomsLabel.text = "\(house.bathrooms) Baños"
+        GarageLabel.text = String(house.garage) +  " Espacios"
+        DetailsLabel.text = house.details
+        if house.security {
+            SecurityLabel.text = "Sí"
+        }else{
+            SecurityLabel.text = "No"
+        }
+        
+        // Do any additional setup after loading the view.
+        ImageView.image = UIImage(named:arrPictures[index])
+        imageLabel.text = "\(index+1)/\(arrPictures.count)"
     }
     
     @objc func swipeEnd( _ sender : UISwipeGestureRecognizer) {
         if sender.direction == .left {
-            if(index < arrPictures.count-1)
+            if(index < (arrPictures.count)-1)
             {
                 index += 1
             }else{
@@ -48,11 +85,38 @@ class HouseDetailViewController: UIViewController {
             {
                 index -= 1
             }else{
-                index = arrPictures.count - 1
+                index = (arrPictures.count) - 1
             }
         }
         ImageView.image = UIImage(named:arrPictures[index])
         imageLabel.text = "\(index+1)/\(arrPictures.count)"
+    }
+    
+    @IBAction func FavoriteButton(_ sender: Any) {
+        if let house = house{
+            house.changeFavorite()
+            setButtonImage()
+        }
+    }
+    
+    func setButtonImage(){
+        guard let house = house else { return }
+        if(house.isFavorite)
+        {
+            favButton.setImage(UIImage(named: "heartIconFilled"), for: UIControlState.normal)
+        }else{
+            favButton.setImage(UIImage(named: "heartIcon"), for: UIControlState.normal)
+        }
+    }
+    @IBAction func ShowContactAgent(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let contactVC = storyboard.instantiateViewController(withIdentifier: "ContactAgentView") as! ContactAgentViewController
+        //detailVC.house = list.houseList[houseId]
+        //self.navigationController?.pushViewController(contactVC, animated: true)
+        self.addChildViewController(contactVC)
+        contactVC.view.frame = self.view.frame
+        self.view.addSubview(contactVC.view)
+        contactVC.didMove(toParentViewController: self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,14 +133,5 @@ class HouseDetailViewController: UIViewController {
     }
     
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

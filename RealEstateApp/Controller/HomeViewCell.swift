@@ -11,6 +11,13 @@ import UIKit
 class HomeViewCell: UITableViewCell{
     
     @IBOutlet weak var view: UIView!
+    @IBOutlet weak var ImageView: UIImageView!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var sizeLabel: UILabel!
+    @IBOutlet weak var AddressLabel: UILabel!
+    var homeId: Int?
+    
+    
     var delegate: myTableDelegate?
     
     override func awakeFromNib() {
@@ -23,10 +30,12 @@ class HomeViewCell: UITableViewCell{
     }
     
     @objc func tapEdit(sender: UITapGestureRecognizer) {
-        delegate?.myTableDelegate()
+        if let homeId = homeId {
+            delegate?.myTableDelegate(houseId: homeId)
+        }
     }
 }
 
 protocol myTableDelegate {
-    func myTableDelegate()
+    func myTableDelegate(houseId: Int)
 }

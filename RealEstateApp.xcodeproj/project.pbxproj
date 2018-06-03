@@ -8,34 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		7D91871F9DFA034BEAA86EF5 /* Pods_RealEstateApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41077EAB7CF352464F50C71B /* Pods_RealEstateApp.framework */; };
+		900317FA20C3A31D00629C5D /* HouseListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900317F920C3A31D00629C5D /* HouseListModel.swift */; };
+		90069C8720C341110015A9CE /* UserSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90069C8620C341110015A9CE /* UserSystem.swift */; };
 		9029042920BB60F3007A6F23 /* ImageResizeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029042820BB60F3007A6F23 /* ImageResizeExtension.swift */; };
 		902B134020B9EA66003CBF5E /* RESTAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902B133F20B9EA66003CBF5E /* RESTAPIManager.swift */; };
+		9066DDA920C3B00E00E4B94C /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9066DDA820C3B00E00E4B94C /* HomeViewCell.swift */; };
 		907DEE7420AD361E00FBEA6E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907DEE7320AD361E00FBEA6E /* AppDelegate.swift */; };
 		907DEE7620AD361E00FBEA6E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907DEE7520AD361E00FBEA6E /* ViewController.swift */; };
 		907DEE7920AD361E00FBEA6E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 907DEE7720AD361E00FBEA6E /* Main.storyboard */; };
 		907DEE7B20AD362100FBEA6E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 907DEE7A20AD362100FBEA6E /* Assets.xcassets */; };
-		907DEE7E20AD362100FBEA6E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 907DEE7C20AD362100FBEA6E /* LaunchScreen.storyboard */; };
 		907DEE8D20AD3B3200FBEA6E /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907DEE8C20AD3B3200FBEA6E /* LoginController.swift */; };
 		907DEE8F20AD4AA300FBEA6E /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907DEE8E20AD4AA300FBEA6E /* ProfileController.swift */; };
 		909497A120B1CC4300709760 /* HouseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909497A020B1CC4300709760 /* HouseModel.swift */; };
 		909497A320B1D1D600709760 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909497A220B1D1D600709760 /* UserModel.swift */; };
 		909497A520B1E30300709760 /* HouseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909497A420B1E30300709760 /* HouseDetailViewController.swift */; };
 		90A3F8C720B14A36007534A9 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3F8C620B14A36007534A9 /* HomeListViewController.swift */; };
-		90A3F8CB20B14CE1007534A9 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A3F8CA20B14CE1007534A9 /* HomeViewCell.swift */; };
+		90AF66AE20C3CF7900868CC3 /* ContactAgentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF66AD20C3CF7900868CC3 /* ContactAgentViewController.swift */; };
+		90AF66B020C3D43600868CC3 /* FavoriteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90AF66AF20C3D43600868CC3 /* FavoriteModel.swift */; };
 		90C08BA820AE5A100071E798 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C08BA720AE5A100071E798 /* RegisterController.swift */; };
+		90C9A16920C2ECB400DC6B3A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C9A16820C2ECB400DC6B3A /* MainTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1842B9957724CD207AEA1EF3 /* Pods-RealEstateApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealEstateApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealEstateApp/Pods-RealEstateApp.debug.xcconfig"; sourceTree = "<group>"; };
 		41077EAB7CF352464F50C71B /* Pods_RealEstateApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealEstateApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		900317F920C3A31D00629C5D /* HouseListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseListModel.swift; sourceTree = "<group>"; };
+		90069C8620C341110015A9CE /* UserSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSystem.swift; sourceTree = "<group>"; };
 		9029042820BB60F3007A6F23 /* ImageResizeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResizeExtension.swift; sourceTree = "<group>"; };
 		902B133F20B9EA66003CBF5E /* RESTAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RESTAPIManager.swift; sourceTree = "<group>"; };
+		9066DDA820C3B00E00E4B94C /* HomeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		907DEE7020AD361E00FBEA6E /* RealEstateApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RealEstateApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		907DEE7320AD361E00FBEA6E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		907DEE7520AD361E00FBEA6E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		907DEE7820AD361E00FBEA6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		907DEE7A20AD362100FBEA6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		907DEE7D20AD362100FBEA6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		907DEE7F20AD362100FBEA6E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		907DEE8C20AD3B3200FBEA6E /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		907DEE8E20AD4AA300FBEA6E /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
@@ -43,8 +49,10 @@
 		909497A220B1D1D600709760 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		909497A420B1E30300709760 /* HouseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseDetailViewController.swift; sourceTree = "<group>"; };
 		90A3F8C620B14A36007534A9 /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
-		90A3F8CA20B14CE1007534A9 /* HomeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
+		90AF66AD20C3CF7900868CC3 /* ContactAgentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAgentViewController.swift; sourceTree = "<group>"; };
+		90AF66AF20C3D43600868CC3 /* FavoriteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteModel.swift; sourceTree = "<group>"; };
 		90C08BA720AE5A100071E798 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		90C9A16820C2ECB400DC6B3A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		A830CEBD35E9246635FA85C0 /* Pods-RealEstateApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealEstateApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-RealEstateApp/Pods-RealEstateApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -111,7 +119,6 @@
 				907DEE8620AD3A0000FBEA6E /* View */,
 				907DEE8520AD39F900FBEA6E /* Model */,
 				907DEE7A20AD362100FBEA6E /* Assets.xcassets */,
-				907DEE7C20AD362100FBEA6E /* LaunchScreen.storyboard */,
 				907DEE7F20AD362100FBEA6E /* Info.plist */,
 			);
 			path = RealEstateApp;
@@ -123,6 +130,9 @@
 				909497A020B1CC4300709760 /* HouseModel.swift */,
 				909497A220B1D1D600709760 /* UserModel.swift */,
 				902B133F20B9EA66003CBF5E /* RESTAPIManager.swift */,
+				90069C8620C341110015A9CE /* UserSystem.swift */,
+				900317F920C3A31D00629C5D /* HouseListModel.swift */,
+				90AF66AF20C3D43600868CC3 /* FavoriteModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -138,14 +148,16 @@
 		907DEE8720AD3A0600FBEA6E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9066DDA820C3B00E00E4B94C /* HomeViewCell.swift */,
 				907DEE7320AD361E00FBEA6E /* AppDelegate.swift */,
 				907DEE7520AD361E00FBEA6E /* ViewController.swift */,
 				907DEE8C20AD3B3200FBEA6E /* LoginController.swift */,
 				907DEE8E20AD4AA300FBEA6E /* ProfileController.swift */,
 				90C08BA720AE5A100071E798 /* RegisterController.swift */,
 				90A3F8C620B14A36007534A9 /* HomeListViewController.swift */,
-				90A3F8CA20B14CE1007534A9 /* HomeViewCell.swift */,
 				909497A420B1E30300709760 /* HouseDetailViewController.swift */,
+				90C9A16820C2ECB400DC6B3A /* MainTabBarController.swift */,
+				90AF66AD20C3CF7900868CC3 /* ContactAgentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -210,7 +222,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				907DEE7E20AD362100FBEA6E /* LaunchScreen.storyboard in Resources */,
 				907DEE7B20AD362100FBEA6E /* Assets.xcassets in Resources */,
 				907DEE7920AD361E00FBEA6E /* Main.storyboard in Resources */,
 			);
@@ -226,10 +237,14 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-RealEstateApp/Pods-RealEstateApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,16 +277,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90AF66B020C3D43600868CC3 /* FavoriteModel.swift in Sources */,
 				909497A520B1E30300709760 /* HouseDetailViewController.swift in Sources */,
 				909497A120B1CC4300709760 /* HouseModel.swift in Sources */,
+				9066DDA920C3B00E00E4B94C /* HomeViewCell.swift in Sources */,
 				90C08BA820AE5A100071E798 /* RegisterController.swift in Sources */,
 				9029042920BB60F3007A6F23 /* ImageResizeExtension.swift in Sources */,
+				900317FA20C3A31D00629C5D /* HouseListModel.swift in Sources */,
 				90A3F8C720B14A36007534A9 /* HomeListViewController.swift in Sources */,
-				90A3F8CB20B14CE1007534A9 /* HomeViewCell.swift in Sources */,
 				902B134020B9EA66003CBF5E /* RESTAPIManager.swift in Sources */,
+				90C9A16920C2ECB400DC6B3A /* MainTabBarController.swift in Sources */,
 				907DEE7620AD361E00FBEA6E /* ViewController.swift in Sources */,
+				90AF66AE20C3CF7900868CC3 /* ContactAgentViewController.swift in Sources */,
 				907DEE8D20AD3B3200FBEA6E /* LoginController.swift in Sources */,
 				907DEE7420AD361E00FBEA6E /* AppDelegate.swift in Sources */,
+				90069C8720C341110015A9CE /* UserSystem.swift in Sources */,
 				909497A320B1D1D600709760 /* UserModel.swift in Sources */,
 				907DEE8F20AD4AA300FBEA6E /* ProfileController.swift in Sources */,
 			);
@@ -286,14 +306,6 @@
 				907DEE7820AD361E00FBEA6E /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		907DEE7C20AD362100FBEA6E /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				907DEE7D20AD362100FBEA6E /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -418,6 +430,8 @@
 			baseConfigurationReference = 1842B9957724CD207AEA1EF3 /* Pods-RealEstateApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3K2NN9NT9;
 				INFOPLIST_FILE = RealEstateApp/Info.plist;
@@ -427,6 +441,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = szv.RealEstateApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -437,6 +452,8 @@
 			baseConfigurationReference = A830CEBD35E9246635FA85C0 /* Pods-RealEstateApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3K2NN9NT9;
 				INFOPLIST_FILE = RealEstateApp/Info.plist;
@@ -446,6 +463,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = szv.RealEstateApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

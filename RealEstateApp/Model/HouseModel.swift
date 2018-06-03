@@ -15,15 +15,16 @@ class HouseModel{
     let address2: String
     let size : Double
     let buildingSize: Double
-    let price: Double
+    let price: String
     let details: String
     let bedrooms: Int
     let bathrooms: Int
     let garage: Int
     let security: Bool
-    let picture: NSData //Revisar tipo y conversion para pasar a base
+    var isFavorite: Bool
+    let pictures: [String]
     
-    init(Id: Int, Address1: String, Address2: String, Size: Double, BuildingSize: Double, Price: Double, Details: String, Bedrooms: Int, Bathrooms: Int, Garage: Int, Security: Bool, Picture: NSData) {
+    init(Id: Int, Address1: String, Address2: String, Size: Double, BuildingSize: Double, Price: String, Details: String, Bedrooms: Int, Bathrooms: Int, Garage: Int, Security: Bool, IsFavorite: Bool, Pictures: [String]) {
         id = Id
         address1 = Address1
         address2 = Address2
@@ -35,7 +36,16 @@ class HouseModel{
         bathrooms = Bathrooms
         garage = Garage
         security = Security
-        picture = Picture
+        isFavorite = IsFavorite
+        pictures = Pictures
+    }
+    
+    func changeFavorite(){
+        if isFavorite {
+            isFavorite = false
+        }else{
+            isFavorite = true
+        }
     }
     
 }

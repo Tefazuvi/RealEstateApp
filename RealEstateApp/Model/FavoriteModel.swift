@@ -1,0 +1,79 @@
+//
+//  FavoriteModel.swift
+//  RealEstateApp
+//
+//  Created by Stephanie Zuniga on 6/3/18.
+//  Copyright © 2018 Stephanie Zuniga. All rights reserved.
+//
+
+import Foundation
+import RealmSwift
+
+class FavoriteModel: Object{
+    /*
+    
+    @objc dynamic var idFavorite: Int = 0
+    @objc dynamic var comments: String = ""
+    let id: Int
+    let address1 : String
+    let address2: String
+    let size : Double
+    let buildingSize: Double
+    let price: String
+    let details: String
+    let bedrooms: Int
+    let bathrooms: Int
+    let garage: Int
+    let security: Bool
+    var isFavorite: Bool
+    let pictures: [String]
+    
+    static func saveUser(newUser : UserModel)->UserSystem{
+        
+        let NewUser = UserSystem()
+        NewUser.idUser = newUser.idUser
+        NewUser.email = newUser.email
+        NewUser.password = newUser.password
+        NewUser.remember = true
+        
+        let realm = try! Realm()
+        
+        try! realm.write {
+            realm.add(NewUser)
+        }
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        
+        return NewUser
+    }
+    
+    static func getLast()-> UserSystem?{
+        let realm = try! Realm()
+        let users = realm.objects(UserSystem.self)
+        if users.count > 0 {
+            let user = users[users.count-1]
+            return user
+        }else{
+            return nil
+        }
+    }
+    
+    static func updateUser(id: Int, rememberValue: Bool){
+        let realm = try! Realm()
+        let users = realm.objects(UserSystem.self).filter("idUser = \(id)")
+        if users.count > 0 {
+            let user = users[users.count-1]
+            try! realm.write {
+                user.remember = rememberValue
+            }
+        }
+    }
+    
+    static func countObjectsandPrint(){
+        let realm = try! Realm()
+        
+        let users = realm.objects(UserSystem.self)
+        print(users.count)
+    }
+ */
+    
+}
