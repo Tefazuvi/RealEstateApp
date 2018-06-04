@@ -48,6 +48,7 @@ class HomeListViewController: UITableViewController, myTableDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as! HomeViewCell
         cell.view.layer.cornerRadius = 10
+        cell.delegate = self
         
         let coverImage = list.houseList[indexPath.row].pictures[0]
         cell.AddressLabel.text = list.houseList[indexPath.row].address1
