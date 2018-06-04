@@ -81,6 +81,19 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         }
     }
     
+    func verifyEmail()->Bool{
+        if email.text == confirmEmail.text {
+            return true
+        }else{
+            let alert = UIAlertController(title: "Los correos electrónicos deben coincidir.", message: nil, preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self.present(alert, animated: true)
+            return false
+        }
+    }
+    
     func showAlert(){
         let alert = UIAlertController(title: "Se ha creado su cuenta, ingrese su usuario y contraseña.", message: nil, preferredStyle: .alert)
         

@@ -12,7 +12,6 @@ class ProfileController: UIViewController {
     
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var ContentView: UIScrollView!
-    
     @IBOutlet weak var fullName: UILabel!
     @IBOutlet weak var phone: UILabel!
     @IBOutlet weak var email: UILabel!
