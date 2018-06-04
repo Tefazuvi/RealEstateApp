@@ -9,14 +9,28 @@
 import UIKit
 
 class ContactAgentViewController: UIViewController {
+    
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var fullNameLbl: UILabel!
+    @IBOutlet weak var phoneLbl: UILabel!
+    @IBOutlet weak var emailLbl: UILabel!
+    @IBOutlet weak var ImageView: UIImageView!
+    
+    var contact: ContactAgent?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setRounded(View: containerView)
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-
-        // Do any additional setup after loading the view.
+        
+        if let contact = contact {
+            fullNameLbl.text = "\(contact.name) \(contact.lastname)"
+            phoneLbl.text = contact.phone
+            emailLbl.text = contact.email
+            ImageView.image = UIImage(named: contact.profile)
+        }
+        
+        setRounded(View: ImageView)
     }
     
     func setRounded(View: UIView){
@@ -25,7 +39,14 @@ class ContactAgentViewController: UIViewController {
         View.layer.borderColor = hexStringToUIColor(hex:"#336666").cgColor
         View.clipsToBounds = true
     }
-
+    
+    func setRounded(View: UIImageView){
+        View.layer.cornerRadius = View.frame.height / 2
+        View.layer.borderWidth = 2
+        View.layer.borderColor = hexStringToUIColor(hex:"#336666").cgColor
+        View.clipsToBounds = true
+    }
+    
     func hexStringToUIColor (hex:String) -> UIColor {
         var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
         
@@ -48,20 +69,12 @@ class ContactAgentViewController: UIViewController {
         )
     }
     
+    @IBAction func closePopUp(_ sender: Any) {
+        self.view.removeFromSuperview()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

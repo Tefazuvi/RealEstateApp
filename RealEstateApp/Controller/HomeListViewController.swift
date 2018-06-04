@@ -11,18 +11,23 @@ import UIKit
 class HomeListViewController: UITableViewController, myTableDelegate {
     
     @IBOutlet var myTableView: UITableView!
-    let list = HouseListModel();
+    let list = HouseListModel.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         myTableView.delegate = self
         myTableView.dataSource = self
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        if FavoriteModel.countObjects()>0 {
+            let favorites = FavoriteModel.getAllFavorites()
+            
+            for favorite in favorites {
+                list.houseList[favorite.idHouse].changeFavorite()
+            }
+        }
+        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Casas", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
     }
@@ -31,8 +36,6 @@ class HomeListViewController: UITableViewController, myTableDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -45,7 +48,6 @@ class HomeListViewController: UITableViewController, myTableDelegate {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as! HomeViewCell
         cell.view.layer.cornerRadius = 10
-        cell.delegate = self
         
         let coverImage = list.houseList[indexPath.row].pictures[0]
         cell.AddressLabel.text = list.houseList[indexPath.row].address1
@@ -57,13 +59,10 @@ class HomeListViewController: UITableViewController, myTableDelegate {
     }
     
     func myTableDelegate(houseId: Int) {
-        //self.performSegue(withIdentifier: "ShowDetail", sender: self)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let detailVC = storyboard.instantiateViewController(withIdentifier: "HouseDetailViewController") as! HouseDetailViewController
         detailVC.house = list.houseList[houseId]
         self.navigationController?.pushViewController(detailVC, animated: true)
-        //modify your datasource here
     }
-    
     
 }

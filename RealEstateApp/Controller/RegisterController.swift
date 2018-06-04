@@ -26,7 +26,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     var imagePicker = UIImagePickerController()
     
-    
     @IBOutlet weak var scrollView: UIScrollView!
     
     override func viewDidLoad() {
@@ -35,7 +34,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         image.isUserInteractionEnabled = true
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegisterController.imageTapped))
         image.addGestureRecognizer(tapGestureRecognizer)
-        // Do any additional setup after loading the view.
         
         name.delegate = self
         lastname.delegate = self
@@ -59,11 +57,11 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
         password.layer.borderColor = hexStringToUIColor(hex:"#336666").cgColor
         
         //Listen for keyboard events
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginController.keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterController.keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginController.keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterController.keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(LoginController.keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(RegisterController.keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
@@ -81,6 +79,16 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
             
             self.present(imagePicker, animated: true, completion: nil)
         }
+    }
+    
+    func showAlert(){
+        let alert = UIAlertController(title: "Se ha creado su cuenta, ingrese su usuario y contraseña.", message: nil, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
+            self.performSegue(withIdentifier: "ShowLogin", sender: self)
+        }))
+        
+        self.present(alert, animated: true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -117,9 +125,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @objc func keyboardWillChange(notification: Notification){
         
-        
         if notification.name == Notification.Name.UIKeyboardWillShow || notification.name == Notification.Name.UIKeyboardWillChangeFrame{
-            
             
             if  let userInfo = notification.userInfo,
                 let keyboardSize = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue,
@@ -142,8 +148,7 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
                     }
                 }, completion: nil)
             }
-        }
-        else if notification.name == Notification.Name.UIKeyboardWillHide{
+        } else if notification.name == Notification.Name.UIKeyboardWillHide{
             
             if  let userInfo = notification.userInfo,
                 let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue,
@@ -157,14 +162,11 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
                     self.view.endEditing(true)
                 }, completion: nil)
             }
-            
         }
-        
     }
     
     // Assign the newly active text field to your activeTextField variable
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
         self.activeTextField = textField
     }
     
@@ -180,7 +182,6 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
@@ -221,13 +222,15 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     @IBAction func Register(_ sender: Any) {
         activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         
         let newUser = UserModel(Id: 0, Name: name.text, LastName: lastname.text, Email: email.text!, Password: password.text!, Phone: phone.text, Type: 1, Profile: strBase64)
         
         RESTAPIManager.sharedInstance.saveUser(user: newUser , onSuccess: {
             DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "ShowLogin", sender: self)
                 self.activityIndicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.showAlert()
             }
         }, onFailure: { error in
             let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)

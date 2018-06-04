@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7D91871F9DFA034BEAA86EF5 /* Pods_RealEstateApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41077EAB7CF352464F50C71B /* Pods_RealEstateApp.framework */; };
+		900290C920C43769002BC5B2 /* ContactAgent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900290C820C43769002BC5B2 /* ContactAgent.swift */; };
+		900290CB20C437C2002BC5B2 /* ContactsListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900290CA20C437C2002BC5B2 /* ContactsListModel.swift */; };
+		900290CD20C44587002BC5B2 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900290CC20C44587002BC5B2 /* FavoritesTableViewController.swift */; };
 		900317FA20C3A31D00629C5D /* HouseListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 900317F920C3A31D00629C5D /* HouseListModel.swift */; };
 		90069C8720C341110015A9CE /* UserSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90069C8620C341110015A9CE /* UserSystem.swift */; };
 		9029042920BB60F3007A6F23 /* ImageResizeExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9029042820BB60F3007A6F23 /* ImageResizeExtension.swift */; };
@@ -32,6 +35,9 @@
 /* Begin PBXFileReference section */
 		1842B9957724CD207AEA1EF3 /* Pods-RealEstateApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealEstateApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RealEstateApp/Pods-RealEstateApp.debug.xcconfig"; sourceTree = "<group>"; };
 		41077EAB7CF352464F50C71B /* Pods_RealEstateApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealEstateApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		900290C820C43769002BC5B2 /* ContactAgent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactAgent.swift; sourceTree = "<group>"; };
+		900290CA20C437C2002BC5B2 /* ContactsListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsListModel.swift; sourceTree = "<group>"; };
+		900290CC20C44587002BC5B2 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		900317F920C3A31D00629C5D /* HouseListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseListModel.swift; sourceTree = "<group>"; };
 		90069C8620C341110015A9CE /* UserSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSystem.swift; sourceTree = "<group>"; };
 		9029042820BB60F3007A6F23 /* ImageResizeExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageResizeExtension.swift; sourceTree = "<group>"; };
@@ -133,6 +139,8 @@
 				90069C8620C341110015A9CE /* UserSystem.swift */,
 				900317F920C3A31D00629C5D /* HouseListModel.swift */,
 				90AF66AF20C3D43600868CC3 /* FavoriteModel.swift */,
+				900290C820C43769002BC5B2 /* ContactAgent.swift */,
+				900290CA20C437C2002BC5B2 /* ContactsListModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 				909497A420B1E30300709760 /* HouseDetailViewController.swift */,
 				90C9A16820C2ECB400DC6B3A /* MainTabBarController.swift */,
 				90AF66AD20C3CF7900868CC3 /* ContactAgentViewController.swift */,
+				900290CC20C44587002BC5B2 /* FavoritesTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -280,12 +289,14 @@
 				90AF66B020C3D43600868CC3 /* FavoriteModel.swift in Sources */,
 				909497A520B1E30300709760 /* HouseDetailViewController.swift in Sources */,
 				909497A120B1CC4300709760 /* HouseModel.swift in Sources */,
+				900290CD20C44587002BC5B2 /* FavoritesTableViewController.swift in Sources */,
 				9066DDA920C3B00E00E4B94C /* HomeViewCell.swift in Sources */,
 				90C08BA820AE5A100071E798 /* RegisterController.swift in Sources */,
 				9029042920BB60F3007A6F23 /* ImageResizeExtension.swift in Sources */,
 				900317FA20C3A31D00629C5D /* HouseListModel.swift in Sources */,
 				90A3F8C720B14A36007534A9 /* HomeListViewController.swift in Sources */,
 				902B134020B9EA66003CBF5E /* RESTAPIManager.swift in Sources */,
+				900290CB20C437C2002BC5B2 /* ContactsListModel.swift in Sources */,
 				90C9A16920C2ECB400DC6B3A /* MainTabBarController.swift in Sources */,
 				907DEE7620AD361E00FBEA6E /* ViewController.swift in Sources */,
 				90AF66AE20C3CF7900868CC3 /* ContactAgentViewController.swift in Sources */,
@@ -293,6 +304,7 @@
 				907DEE7420AD361E00FBEA6E /* AppDelegate.swift in Sources */,
 				90069C8720C341110015A9CE /* UserSystem.swift in Sources */,
 				909497A320B1D1D600709760 /* UserModel.swift in Sources */,
+				900290C920C43769002BC5B2 /* ContactAgent.swift in Sources */,
 				907DEE8F20AD4AA300FBEA6E /* ProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

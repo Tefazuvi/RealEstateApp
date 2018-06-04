@@ -57,6 +57,8 @@ class ProfileController: UIViewController {
         
         if let userSystem = LoginController.sharedInstance.userSystem {
             RememberSwitch.isOn = userSystem.remember
+        }else{
+            RememberSwitch.isOn = false
         }
         
     }
@@ -108,16 +110,5 @@ class ProfileController: UIViewController {
             alpha: CGFloat(1.0)
         )
     }
-    
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

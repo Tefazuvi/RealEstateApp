@@ -10,70 +10,68 @@ import Foundation
 import RealmSwift
 
 class FavoriteModel: Object{
-    /*
     
-    @objc dynamic var idFavorite: Int = 0
-    @objc dynamic var comments: String = ""
-    let id: Int
-    let address1 : String
-    let address2: String
-    let size : Double
-    let buildingSize: Double
-    let price: String
-    let details: String
-    let bedrooms: Int
-    let bathrooms: Int
-    let garage: Int
-    let security: Bool
-    var isFavorite: Bool
-    let pictures: [String]
+    @objc dynamic var comments: String? = nil
+    @objc dynamic var idHouse: Int = 0
     
-    static func saveUser(newUser : UserModel)->UserSystem{
+    static func saveFavorite(idHome: Int, userComments: String?){
         
-        let NewUser = UserSystem()
-        NewUser.idUser = newUser.idUser
-        NewUser.email = newUser.email
-        NewUser.password = newUser.password
-        NewUser.remember = true
+        let favorite = FavoriteModel()
+        favorite.comments = userComments
+        favorite.idHouse = idHome
         
         let realm = try! Realm()
         
         try! realm.write {
-            realm.add(NewUser)
+            realm.add(favorite)
         }
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
         
-        return NewUser
+        //print(Realm.Configuration.defaultConfiguration.fileURL!)
     }
     
-    static func getLast()-> UserSystem?{
+    static func updateComments(id: Int, UserComments: String?){
+        
         let realm = try! Realm()
-        let users = realm.objects(UserSystem.self)
-        if users.count > 0 {
-            let user = users[users.count-1]
-            return user
-        }else{
-            return nil
-        }
-    }
-    
-    static func updateUser(id: Int, rememberValue: Bool){
-        let realm = try! Realm()
-        let users = realm.objects(UserSystem.self).filter("idUser = \(id)")
-        if users.count > 0 {
-            let user = users[users.count-1]
-            try! realm.write {
-                user.remember = rememberValue
+        let favorites = realm.objects(FavoriteModel.self).filter("idHouse = \(id)")
+        
+        if favorites.count > 0 {
+            if let favorite = favorites.first
+            {
+                try! realm.write {
+                    favorite.comments = UserComments
+                }
             }
         }
-    }
-    
-    static func countObjectsandPrint(){
-        let realm = try! Realm()
         
-        let users = realm.objects(UserSystem.self)
-        print(users.count)
     }
- */
     
+    static func deleteFavorite(id: Int){
+        
+        let realm = try! Realm()
+        let favorites = realm.objects(FavoriteModel.self).filter("idHouse = \(id)")
+        
+        try! realm.write {
+            if let favorite = favorites.first {
+                realm.delete(favorite)
+            }
+        }
+        
+    }
+    
+    static func getAllFavorites() -> [FavoriteModel]{
+        
+        let realm = try! Realm()
+        let favorites = realm.objects(FavoriteModel.self)
+        
+        let array = Array(favorites)
+        return array
+    }
+    
+    static func countObjects()->Int{
+        
+        let realm = try! Realm()
+        let favorites = realm.objects(FavoriteModel.self)
+        
+        return favorites.count
+    }
 }

@@ -23,8 +23,9 @@ class HouseModel{
     let security: Bool
     var isFavorite: Bool
     let pictures: [String]
+    let contact: ContactAgent
     
-    init(Id: Int, Address1: String, Address2: String, Size: Double, BuildingSize: Double, Price: String, Details: String, Bedrooms: Int, Bathrooms: Int, Garage: Int, Security: Bool, IsFavorite: Bool, Pictures: [String]) {
+    init(Id: Int, Address1: String, Address2: String, Size: Double, BuildingSize: Double, Price: String, Details: String, Bedrooms: Int, Bathrooms: Int, Garage: Int, Security: Bool, IsFavorite: Bool, Pictures: [String], Contact: ContactAgent) {
         id = Id
         address1 = Address1
         address2 = Address2
@@ -38,7 +39,10 @@ class HouseModel{
         security = Security
         isFavorite = IsFavorite
         pictures = Pictures
+        contact = Contact
     }
+    
+    
     
     func changeFavorite(){
         if isFavorite {

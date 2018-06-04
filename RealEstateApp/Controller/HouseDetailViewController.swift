@@ -93,8 +93,14 @@ class HouseDetailViewController: UIViewController {
     }
     
     @IBAction func FavoriteButton(_ sender: Any) {
+        
         if let house = house{
             house.changeFavorite()
+            if(house.isFavorite){
+                FavoriteModel.saveFavorite(idHome: house.id, userComments: nil)
+            }else{
+                FavoriteModel.deleteFavorite(id: house.id)
+            }
             setButtonImage()
         }
     }
@@ -111,8 +117,9 @@ class HouseDetailViewController: UIViewController {
     @IBAction func ShowContactAgent(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let contactVC = storyboard.instantiateViewController(withIdentifier: "ContactAgentView") as! ContactAgentViewController
-        //detailVC.house = list.houseList[houseId]
-        //self.navigationController?.pushViewController(contactVC, animated: true)
+        contactVC.contact = house?.contact
+        
+        //Add the popUpView as a childview
         self.addChildViewController(contactVC)
         contactVC.view.frame = self.view.frame
         self.view.addSubview(contactVC.view)

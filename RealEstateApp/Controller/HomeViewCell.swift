@@ -15,18 +15,37 @@ class HomeViewCell: UITableViewCell{
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var sizeLabel: UILabel!
     @IBOutlet weak var AddressLabel: UILabel!
-    var homeId: Int?
+    @IBOutlet weak var commentsTxt: UITextField!
+    @IBOutlet weak var SaveEditButton: UIButton!
     
+    var homeId: Int?
     
     var delegate: myTableDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        //Add gesture recognizer for each cell
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(HomeViewCell.tapEdit(sender:)))
         addGestureRecognizer(tapGesture)
-        //tapGesture.delegate = ViewController()
-        
+    }
+    
+    @IBAction func saveComments(_ sender: Any) {
+        if SaveEditButton.currentTitle == "Edit"
+        {
+            self.commentsTxt.isEnabled = true
+            SaveEditButton.setTitle("Save", for: .normal)
+            return
+        }else if SaveEditButton.currentTitle == "Save"{
+            
+            //Safe Unwrap HomeId
+            if let homeId = homeId {
+                FavoriteModel.updateComments(id: homeId, UserComments: commentsTxt.text)
+                SaveEditButton.setTitle("Edit", for: .normal)
+                self.commentsTxt.isEnabled = false
+            }
+            return
+        }
     }
     
     @objc func tapEdit(sender: UITapGestureRecognizer) {

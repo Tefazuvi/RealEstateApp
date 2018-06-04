@@ -11,7 +11,6 @@ import UIKit
 class LoginController: UIViewController, UITextFieldDelegate{
     
     static let sharedInstance = LoginController()
-    //private init() {} //This prevents others from using the default '()' initializer for this class.
     
     @IBOutlet weak var UserNameText: UITextField!
     @IBOutlet weak var PasswordText: UITextField!
@@ -43,6 +42,8 @@ class LoginController: UIViewController, UITextFieldDelegate{
         NotificationCenter.default.addObserver(self, selector: #selector(LoginController.keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(LoginController.keyboardWillChange(notification:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        //Check if theres login credentials saved and login
         if !LoginController.sharedInstance.LogOut {
             silentLogin()
         }
@@ -62,7 +63,6 @@ class LoginController: UIViewController, UITextFieldDelegate{
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @objc func keyboardWillChange(notification: Notification){
@@ -100,12 +100,14 @@ class LoginController: UIViewController, UITextFieldDelegate{
             PasswordText.text = userSaved.password
             LoginController.sharedInstance.userSystem = userSaved
             activityIndicator.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
             RESTAPIManager.sharedInstance.getUser(email: userSaved.email, password: userSaved.password, onSuccess: {
                 json in
                 DispatchQueue.main.async {
                     if let user = String(describing: json).data(using: .utf8){
                         LoginController.sharedInstance.currentUser = try! JSONDecoder().decode(UserModel.self, from: user)
                         self.activityIndicator.stopAnimating()
+                        UIApplication.shared.endIgnoringInteractionEvents()
                         LoginController.sharedInstance.isLogged = true
                         self.performSegue(withIdentifier: "ShowHome", sender: self)
                     }
@@ -115,8 +117,6 @@ class LoginController: UIViewController, UITextFieldDelegate{
                 alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
                 self.show(alert, sender: nil)
             })
-        }else{
-            self.activityIndicator.stopAnimating()
         }
     }
     
@@ -133,6 +133,7 @@ class LoginController: UIViewController, UITextFieldDelegate{
     
     func authenticate(){
         activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
         LoginController.sharedInstance.isLogged = true
         self.performSegue(withIdentifier: "ShowHome", sender: self)
         
@@ -142,12 +143,6 @@ class LoginController: UIViewController, UITextFieldDelegate{
         if rememberUser {
             saveUser()
         }
-        /*if(UserNameText.text == "User" && PasswordText.text == "123")
-         {
-         signSucces()
-         }else{
-         //De momento nada
-         }*/
     }
     
     func logOut(){
@@ -159,9 +154,9 @@ class LoginController: UIViewController, UITextFieldDelegate{
     
     
     @IBAction func Ingresar(_ sender: Any) {
-        //self.authenticate()
-        
+        LoginController.sharedInstance.LogOut = false
         activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         RESTAPIManager.sharedInstance.getUser(email: UserNameText.text!, password: PasswordText.text!, onSuccess: {
             json in
             DispatchQueue.main.async {
