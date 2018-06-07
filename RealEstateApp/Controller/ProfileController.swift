@@ -22,7 +22,7 @@ class ProfileController: UIViewController {
         super.viewDidLoad()
         setRounded(imageView: image)
         ContentView.layer.cornerRadius = 15
-        ContentView.layer.borderWidth = 2
+        ContentView.layer.borderWidth = 4
         ContentView.layer.borderColor = hexStringToUIColor(hex:"#336666").cgColor
         // Do any additional setup after loading the view.
         
@@ -83,7 +83,7 @@ class ProfileController: UIViewController {
     
     func setRounded(imageView: UIImageView){
         imageView.layer.cornerRadius = imageView.frame.height / 2
-        imageView.layer.borderWidth = 1
+        imageView.layer.borderWidth = 4
         imageView.layer.borderColor = hexStringToUIColor(hex:"#336666").cgColor
         imageView.clipsToBounds = true
     }

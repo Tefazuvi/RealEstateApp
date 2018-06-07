@@ -234,23 +234,24 @@ UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     
     @IBAction func Register(_ sender: Any) {
-        activityIndicator.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
-        
-        let newUser = UserModel(Id: 0, Name: name.text, LastName: lastname.text, Email: email.text!, Password: password.text!, Phone: phone.text, Type: 1, Profile: strBase64)
-        
-        RESTAPIManager.sharedInstance.saveUser(user: newUser , onSuccess: {
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                UIApplication.shared.endIgnoringInteractionEvents()
-                self.showAlert()
-            }
-        }, onFailure: { error in
-            let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
-            self.show(alert, sender: nil)
-        })
-        
+        if(verifyEmail()){
+            activityIndicator.startAnimating()
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            
+            let newUser = UserModel(Id: 0, Name: name.text, LastName: lastname.text, Email: email.text!, Password: password.text!, Phone: phone.text, Type: 1, Profile: strBase64)
+            
+            RESTAPIManager.sharedInstance.saveUser(user: newUser , onSuccess: {
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.showAlert()
+                }
+            }, onFailure: { error in
+                let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Dismiss", style: .default, handler: nil))
+                self.show(alert, sender: nil)
+            })
+        }
     }
     
 }

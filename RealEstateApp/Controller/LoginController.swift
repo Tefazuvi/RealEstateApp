@@ -45,7 +45,7 @@ class LoginController: UIViewController, UITextFieldDelegate{
         
         //Check if theres login credentials saved and login
         if !LoginController.sharedInstance.LogOut {
-            silentLogin()
+           silentLogin()
         }
     }
     
